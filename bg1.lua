@@ -16,7 +16,7 @@ end
 
 -- Run the snow background
 function runSnowBg()
-    currentTime = time()
+    local currentTime = time()
     
     if (currentTime - snowBg.prevBallCreatedAt) > snowBg.intensity then
         snowBg.prevBallCreatedAt = currentTime
@@ -37,9 +37,9 @@ end
 -- Create a ball with randon properties
 function createBall()
     -- pos between min and max horizontal size
-    xPos = flr(rnd(124))
-    radius = flr(rnd(3)) + 1
-    speed = radius -- If the ball is large, the speed is more faster
+    local xPos = flr(rnd(124))
+    local radius = flr(rnd(3)) + 1
+    local speed = radius -- If the ball is large, the speed is more faster
 
     return {
         xPos = xPos,
