@@ -5,26 +5,33 @@ __lua__
 #include utils.lua
 #include bg1.lua
 #include bg2.lua
+#include bg3.lua
 
 function _init()
     initSnowBg()
     initWaveBg()
+    initTunnelBg()
 end
 
 function _update()
     runSnowBg()
     runWaveBg()
+    runTunnelBg()
 end
 
 function _draw()
 	cls()
 
+    drawTunnelBg()
+
+    -- drawWaveBg(waveBg)
+    -- drawWaveBg(secondaryWaveBg)
+    -- drawWaveBg(thirdWaveBg)
+
     -- drawSnowBg()
-    drawWaveBg(waveBg)
-    drawWaveBg(secondaryWaveBg)
 
     title = "background cart !"
-    outline(title, getCenterTextX(title), 110, 9, 8)
+    outline(title, getCenterTextX(title), 116, 9, 8)
 end
 
 __gfx__
