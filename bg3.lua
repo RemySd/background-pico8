@@ -1,4 +1,4 @@
--- Snow background
+-- Circle background
 
 -- initialization handling --
 
