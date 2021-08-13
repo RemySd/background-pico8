@@ -7,6 +7,7 @@ __lua__
 #include bg2.lua
 #include bg3.lua
 #include bg4.lua
+#include bg5.lua
 
 function _init()
     initSnowBg()
@@ -26,7 +27,7 @@ end
 function _draw()
 	cls()
 
-    -- drawTunnelBg()
+    drawTunnelBg()
 
     -- drawWaveBg(waveBg)
     -- drawWaveBg(secondaryWaveBg)
@@ -34,7 +35,7 @@ function _draw()
 
     -- drawSnowBg()
 
-    drawDoubleBar(doubleBar)
+    --drawDoubleBar(doubleBar)
 
     title = "background cart !"
     outline(title, getCenterTextX(title), 116, 9, 8)
