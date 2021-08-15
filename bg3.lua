@@ -70,10 +70,10 @@ end
 
 function circleControl()
     if btn(0) then
-        tunnel.xPos = tunnel.xPos - 1
+        -- tunnel.xPos = tunnel.xPos - 1
     end
     if btn(1) then
-        tunnel.xPos = tunnel.xPos + 1
+        -- tunnel.xPos = tunnel.xPos + 1
     end
     if btn(2) then
         tunnel.yPos = tunnel.yPos - 1

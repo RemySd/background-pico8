@@ -33,3 +33,7 @@ function outline(content, xPos, yPos , color1, color2)
 
 	print(content, xPos+1, yPos+1, color2)
 end
+
+function zspr(n,w,h,dx,dy,dz,fx,fy)
+    sspr(8*(n%16),8*flr(n/16),8*w,8*h,dx,dy,8*w*dz,8*h*dz,fx,fy)
+end
