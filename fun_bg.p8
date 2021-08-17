@@ -12,9 +12,14 @@ function _init()
     page = 'bg1'
     currentBg = 1
 
-    initSnowBg()
-    initWaveBg()
-    initTunnelBg()
+    snowBg = initSnowBg()
+
+    wave1 = initWaveBg1()
+    wave2 = initWaveBg2()
+    wave3 = initWaveBg3()
+
+    tunnelBg = initTunnelBg()
+
     doubleBar = initDoubleBarBg()
 end
 
@@ -22,11 +27,13 @@ function _update()
     handle_bg()
 
     if page == 'bg1' then
-        runSnowBg()
+        runSnowBg(snowBg)
     elseif page == 'bg2' then
-        runWaveBg()
+        runWave(wave1)
+        runWave(wave2)
+        runWave(wave3)
     elseif page == 'bg3' then
-        runTunnelBg()
+        runTunnelBg(tunnelBg)
     elseif page == 'bg4' then
         runDoubleBar(doubleBar)
     end
@@ -36,13 +43,13 @@ function _draw()
 	cls()
 
     if page == 'bg1' then
-        drawSnowBg()
+        drawSnowBg(snowBg)
     elseif page == 'bg2' then
-        drawWaveBg(waveBg)
-        drawWaveBg(secondaryWaveBg)
-        drawWaveBg(thirdWaveBg)
+        drawWaveBg(wave1)
+        drawWaveBg(wave2)
+        drawWaveBg(wave3)
     elseif page == 'bg3' then
-        drawTunnelBg()
+        drawTunnelBg(tunnelBg)
     elseif page == 'bg4' then
         drawDoubleBar(doubleBar)
     end

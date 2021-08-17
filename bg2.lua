@@ -5,8 +5,9 @@ WHITE_COLOR = 7
 -- initialization handling --
 
 -- Initialize the background variables
-function initWaveBg()
-    waveBg = {
+-- Full Sample n°1
+function initWaveBg1()
+    local waveBg = {
         waves = {},
         samples = 128,
         amp = 3,
@@ -18,7 +19,12 @@ function initWaveBg()
 
     createLines(waveBg)
 
-    secondaryWaveBg = {
+    return waveBg
+end
+
+-- Full Sample n°2
+function initWaveBg2()
+    local secondaryWaveBg = {
         waves = {},
         samples = 129,
         amp = 6,
@@ -30,7 +36,12 @@ function initWaveBg()
 
     createLines(secondaryWaveBg)
 
-    thirdWaveBg = {
+    return secondaryWaveBg
+end
+
+-- Full Sample n°3
+function initWaveBg3()
+    local thirdWaveBg = {
         waves = {},
         samples = 128,
         amp = 4,
@@ -41,6 +52,8 @@ function initWaveBg()
     }
 
     createLines(thirdWaveBg)
+
+    return thirdWaveBg
 end
 
 function createLines(waveItem)
@@ -64,12 +77,6 @@ end
 -- data handling --
 
 -- Run the wave background
-function runWaveBg()
-    runWave(waveBg)
-    runWave(secondaryWaveBg)
-    runWave(thirdWaveBg)
-end
-
 function runWave(wave)
     for waveDot in all(wave.waves) do
         waveDot.x1 = waveDot.x1 + wave.speed

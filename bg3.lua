@@ -3,8 +3,9 @@
 -- initialization handling --
 
 -- Initialize the background variables
+--Full Sample
 function initTunnelBg()
-    tunnel = {
+    return {
         circles = {},
         speed = 1.5,
         frequency = 0.2,
@@ -21,20 +22,20 @@ end
 -- data handling --
 
 -- Run the snow background
-function runTunnelBg()
+function runTunnelBg(tunnel)
     local currentTime = time()
     
     if (currentTime - tunnel.prevCircleCreatedAt) > tunnel.frequency then
         tunnel.prevCircleCreatedAt = currentTime
-        add(tunnel.circles, createCircle())
+        add(tunnel.circles, createCircle(tunnel))
     end
 
-    growUpCircle()
-    cleanCircle()
-    circleControl()
+    growUpCircle(tunnel)
+    cleanCircle(tunnel)
+    circleControl(tunnel)
 end
 
-function createCircle()
+function createCircle(tunnel)
 
     local colorSelected = tunnel.color1
 
@@ -54,13 +55,13 @@ function createCircle()
     }
 end
 
-function growUpCircle()
+function growUpCircle(tunnel)
     for circle in all(tunnel.circles) do
         circle.radius = circle.radius + tunnel.speed
     end
 end
 
-function cleanCircle()
+function cleanCircle(tunnel)
     for circle in all(tunnel.circles) do
         if circle.radius > 128 then
             del(tunnel.circles, circle)
@@ -68,7 +69,7 @@ function cleanCircle()
     end 
 end
 
-function circleControl()
+function circleControl(tunnel)
     if btn(0) then
         -- tunnel.xPos = tunnel.xPos - 1
     end
@@ -89,7 +90,7 @@ end
 
 -- drawing handling --
 
-function drawTunnelBg()
+function drawTunnelBg(tunnel)
     
     for circle in all(tunnel.circles) do
         if tunnel.fill == 1 then

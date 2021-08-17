@@ -4,7 +4,7 @@
 
 -- Initialize the background variables
 function initSnowBg()
-    snowBg = {
+    return {
         balls = {},
         intensity = 0.3,
         prevBallCreatedAt = 0,
@@ -15,7 +15,7 @@ end
 -- data handling --
 
 -- Run the snow background
-function runSnowBg()
+function runSnowBg(snowBg)
     local currentTime = time()
     
     if (currentTime - snowBg.prevBallCreatedAt) > snowBg.intensity then
@@ -23,11 +23,11 @@ function runSnowBg()
         add(snowBg.balls, createBall())
     end
 
-    moveBalls()
-    cleanOutBall()
+    moveBalls(snowBg)
+    cleanOutBall(snowBg)
 end
 
-function moveBalls()
+function moveBalls(snowBg)
     for ball in all(snowBg.balls) do
         ball.yPos = ball.yPos + ball.speed
         ball.xPos = ball.xPos + snowBg.wind
@@ -49,7 +49,7 @@ function createBall()
     }
 end
 
-function cleanOutBall()
+function cleanOutBall(snowBg)
     for ball in all(snowBg.balls) do
         if ball.yPos > 128 then
             del(snowBg.balls, ball)
@@ -59,7 +59,7 @@ end
 
 -- drawing handling --
 
-function drawSnowBg()
+function drawSnowBg(snowBg)
     for ball in all(snowBg.balls) do
         circfill(ball.xPos, ball.yPos, ball.radius, 7)
     end

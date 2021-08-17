@@ -3,6 +3,7 @@
 -- Initialization handling
 
 -- Initialize the background variable
+-- Full Sample
 function initDoubleBarBg()
     return {
         lines = {},
